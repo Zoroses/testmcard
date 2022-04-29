@@ -967,6 +967,94 @@ body {font-family: 'Open Sans',arial,sans-serif,'Mansalva','PingFang SC','PingFa
 <div class="ontop hide"><span></span>Atas</div>
 <div class="pos_rel" id="adsoutofpage">
 </div>
+<script src="https://cdn-1.tstatic.net/js/lozad.min.js"></script>
+<script>
+	const observer = lozad();
+	observer.observe();
+</script>
+	<div class="pos_rel" id="adsoutofpage-rollUp">
+        <div id='div-Rollup' >
+            <script>
+                googletag.cmd.push(function() { googletag.display('div-Rollup'); });
+            </script>
+        </div>
+    </div>
 
+<!-- forkmedia-->
+<script>
+    var _ContextAdsPublisher = window.parent.document.createElement('script');
+    _ContextAdsPublisher.type = 'text/javascript';
+    _ContextAdsPublisher.async = true;
+    _ContextAdsPublisher.src = window.parent.document.location.protocol +
+        '//pubs.contextads.live/kgm/tribunnews/tribunnews/generic.js';
+    var _scripter = window.parent.document.getElementsByTagName('script')[0];
+    _scripter.parentNode.insertBefore(_ContextAdsPublisher, _scripter);
+</script>
+<!-- forkmedia end -->
+
+
+<!-- Start Alexa Certify Javascript -->
+<script>
+_atrk_opts = { atrk_acct:"6d9Cm1akKd605T", domain:"tribunnews.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=6d9Cm1akKd605T" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+<!-- Begin comScore Tag -->
+<script>
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "8077308" });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=8077308&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+
+<script  defer src="https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js"></script>
+<script  defer src="https://www.gstatic.com/firebasejs/5.5.6/firebase-messaging.js"></script>
+<script src="https://cdn-1.tstatic.net/js/kgnotif_tribun.js"></script>
+<script>
+    if(document.cookie.indexOf('ukid=') == -1){
+        $.ajax({
+            url: 'https://apis.kompas.com/api/activity/user',
+            type: 'get',
+            dataType: "json",
+            success: function (res) {
+
+                let ukid = res.ukid;
+                let date = new Date();
+                    date.setDate(date.getDate() + 1);
+                let expired = date.toUTCString();
+                let domain = '.tribunnews.com';
+
+                document.cookie = "ukid="+ ukid +"; expires="+ expired +"; domain="+ domain +"; path=/"; // set cookie
+            }
+        });
+    }
+</script>
+<!-- glightbox -->
+<!-- end glightbox -->
+<!-- tambahan -->
+<script>
+  $(document).ready(function() {
+    $('img').attr('alt', 'tribunnews');
+    $('img').attr('loading', 'lazy');
+    $('iframe').attr('loading', 'lazy');
+    $('img').addClass('lozad');
+    $('a').attr('aria-label', 'link');
+  });
+</script>
+<!-- end tambahan -->
+
+<!-- start onetap signin google -->
+<div id="sso_g_signin"></div>
+<script type="text/javascript" src="https://cdn-1.tstatic.net/js/kgmedia/tribunnews/sso_g_signin.min-1.0.js"></script>
+<script type="text/javascript" src="https://asset.kompas.com/data/2021/sso/js/extender.min.js"></script>
+<!-- end onetap signin google -->
 </body>
 </html>
