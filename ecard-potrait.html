@@ -520,7 +520,7 @@ body {font-family: 'Open Sans',arial,sans-serif,'Mansalva','PingFang SC','PingFa
 			<!-- s: ecard lebaran -->
 			<link rel="stylesheet" href="https://hp-localurbanfest.tribunnews.com/assets/ecard2/css/mobile/ecard-ramadhan-square.css" />
 			<div class="ecard-container">
-				<h1 class="ecard-main-title">Kartu Ucapan Footer1</h1>
+				<h1 class="ecard-main-title">Kartu Ucapan ft2</h1>
 				<div class="ecard-size">
 					<a href="https://dev.tribunnews.com/tnewsmobile/ramadan/ucapanrayakankembali/potrait" class="ecard-size-potrait">Potrait</a>
 					<a href="https://dev.tribunnews.com/tnewsmobile/ramadan/ucapanrayakankembali/square" class="ecard-size-square ecard-size-active">Square</a>
@@ -967,39 +967,7 @@ body {font-family: 'Open Sans',arial,sans-serif,'Mansalva','PingFang SC','PingFa
 <div class="ontop hide"><span></span>Atas</div>
 <div class="pos_rel" id="adsoutofpage">
 </div>
-<script src="https://cdn-1.tstatic.net/js/lozad.min.js"></script>
-<script>
-	const observer = lozad();
-	observer.observe();
-</script>
-	<div class="pos_rel" id="adsoutofpage-rollUp">
-        <div id='div-Rollup' >
-            <script>
-                googletag.cmd.push(function() { googletag.display('div-Rollup'); });
-            </script>
-        </div>
-    </div>
 
-<!-- forkmedia-->
-<script>
-    var _ContextAdsPublisher = window.parent.document.createElement('script');
-    _ContextAdsPublisher.type = 'text/javascript';
-    _ContextAdsPublisher.async = true;
-    _ContextAdsPublisher.src = window.parent.document.location.protocol +
-        '//pubs.contextads.live/kgm/tribunnews/tribunnews/generic.js';
-    var _scripter = window.parent.document.getElementsByTagName('script')[0];
-    _scripter.parentNode.insertBefore(_ContextAdsPublisher, _scripter);
-</script>
-<!-- forkmedia end -->
-
-
-<!-- Start Alexa Certify Javascript -->
-<script>
-_atrk_opts = { atrk_acct:"6d9Cm1akKd605T", domain:"tribunnews.com",dynamic: true};
-(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
-</script>
-<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=6d9Cm1akKd605T" style="display:none" height="1" width="1" alt="" /></noscript>
-<!-- End Alexa Certify Javascript -->
 <!-- Begin comScore Tag -->
 <script>
   var _comscore = _comscore || [];
@@ -1050,7 +1018,38 @@ _atrk_opts = { atrk_acct:"6d9Cm1akKd605T", domain:"tribunnews.com",dynamic: true
   });
 </script>
 <!-- end tambahan -->
+<!-- breaking news -->
+<script>
+  $(document).ready(function() {
+    jQuery.ajax({
+        type: "GET",
+        url: "https://m.tribunnews.com/main/getNewsbreaking",
+        dataType: 'text',
+        success: function(result){
+          if(result != ''){
+            var title = JSON.parse(result).title;
+            // var description = JSON.parse(result).description;
+            var url = JSON.parse(result).url;
 
+            var arrmatch = ["BREAKING NEWS: ", "BREAKING NEWS - ", "BREAKING NEWS ", "BREAKING NEWS, ", "Breaking News : "];
+            for(var i = 0; i < arrmatch.length; i++){
+              var match = RegExp(arrmatch[i], 'g');
+              if(title.match(match)){
+                title = title.replace(match, "");
+              }
+            }
+              
+            $('#breaking-news-wrapper').show();
+            // $('#titleid').html(title);
+            $('#ahrefid').attr('href', url);
+            $('#ahrefid').html(title);
+          }
+        }
+    });
+
+	});
+</script>
+<!-- end breaking news -->
 <!-- start onetap signin google -->
 <div id="sso_g_signin"></div>
 <script type="text/javascript" src="https://cdn-1.tstatic.net/js/kgmedia/tribunnews/sso_g_signin.min-1.0.js"></script>
