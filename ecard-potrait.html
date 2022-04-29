@@ -520,7 +520,7 @@ body {font-family: 'Open Sans',arial,sans-serif,'Mansalva','PingFang SC','PingFa
 			<!-- s: ecard lebaran -->
 			<link rel="stylesheet" href="https://hp-localurbanfest.tribunnews.com/assets/ecard2/css/mobile/ecard-ramadhan-square.css" />
 			<div class="ecard-container">
-				<h1 class="ecard-main-title">Kartu Ucapan</h1>
+				<h1 class="ecard-main-title">Kartu Ucapan Tambahn</h1>
 				<div class="ecard-size">
 					<a href="https://dev.tribunnews.com/tnewsmobile/ramadan/ucapanrayakankembali/potrait" class="ecard-size-potrait">Potrait</a>
 					<a href="https://dev.tribunnews.com/tnewsmobile/ramadan/ucapanrayakankembali/square" class="ecard-size-square ecard-size-active">Square</a>
@@ -1040,5 +1040,42 @@ _atrk_opts = { atrk_acct:"6d9Cm1akKd605T", domain:"tribunnews.com",dynamic: true
 <!-- glightbox -->
 <!-- end glightbox -->
 
+<!-- breaking news -->
+<script>
+  $(document).ready(function() {
+    jQuery.ajax({
+        type: "GET",
+        url: "https://m.tribunnews.com/main/getNewsbreaking",
+        dataType: 'text',
+        success: function(result){
+          if(result != ''){
+            var title = JSON.parse(result).title;
+            // var description = JSON.parse(result).description;
+            var url = JSON.parse(result).url;
+
+            var arrmatch = ["BREAKING NEWS: ", "BREAKING NEWS - ", "BREAKING NEWS ", "BREAKING NEWS, ", "Breaking News : "];
+            for(var i = 0; i < arrmatch.length; i++){
+              var match = RegExp(arrmatch[i], 'g');
+              if(title.match(match)){
+                title = title.replace(match, "");
+              }
+            }
+              
+            $('#breaking-news-wrapper').show();
+            // $('#titleid').html(title);
+            $('#ahrefid').attr('href', url);
+            $('#ahrefid').html(title);
+          }
+        }
+    });
+
+	});
+</script>
+<!-- end breaking news -->
+<!-- start onetap signin google -->
+<div id="sso_g_signin"></div>
+<script type="text/javascript" src="https://cdn-1.tstatic.net/js/kgmedia/tribunnews/sso_g_signin.min-1.0.js"></script>
+<script type="text/javascript" src="https://asset.kompas.com/data/2021/sso/js/extender.min.js"></script>
+<!-- end onetap signin google -->
 </body>
 </html>
